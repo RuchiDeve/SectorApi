@@ -1,14 +1,9 @@
-FROM openjdk:17-jdk-slim AS build
-
-COPY pom.xml mvnw ./
-COPY .mvn .mvn
-RUN ./mvnw dependency:resolve
-
-COPY src src
-RUN ./mvnw package
+FROM maven:3.8.2-eclipse-temurin-17 AS build
+COPY . .
+RUN mvn clean install -DskipTests
 
 FROM openjdk:17-jdk-slim
-WORKDIR demo
-COPY --from=build target/*.jar demo.jar
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "demo.jar"]
+COPY --from=build /target/*.jar app.jar
+
+ENTRYPOINT ["java","-jar","/app.jar"]
+
