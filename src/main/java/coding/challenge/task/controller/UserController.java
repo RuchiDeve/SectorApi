@@ -21,10 +21,12 @@ public class UserController {
 
 
 
+
     @GetMapping
     public ResponseEntity<List<User>> getUsers() {
         return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
     }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<User> getUser(@PathVariable Long id) {
@@ -37,6 +39,7 @@ public class UserController {
 
         return new ResponseEntity<>(userService.createUser(user), HttpStatus.CREATED);
     }
+
 
     @PutMapping("/{id}")
     public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User user) {
