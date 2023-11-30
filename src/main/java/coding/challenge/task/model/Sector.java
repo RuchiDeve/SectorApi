@@ -80,7 +80,7 @@ public class Sector {
     private String  Other_wood;
     private String  Wooden_building_materials;
     private String  Wooden_houses;
-    private String  others;
+   // private String  others;
     private String  Creative_industries;
     private String  Energy_technology;
     private String  Environment;
