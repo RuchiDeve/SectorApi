@@ -1,13 +1,19 @@
 package coding.challenge.task.service;
 
+import coding.challenge.task.UserDTO;
 import coding.challenge.task.model.User;
 
 import java.util.List;
 
 public interface UserService {
-    User createUser(User user);
-    User getUserById(Long id);
-    List<User> getAllUsers();
-    User updateUser(Long id, User updatedUser);
+    UserDTO createUser(UserDTO userDTO);
+
+    UserDTO getUserById(Long id);
+
+    List<UserDTO> getAllUsers();
+
+    UserDTO updateUser(Long id, UserDTO updatedUserDTO);
+
     void deleteUser(Long id);
+
 }
