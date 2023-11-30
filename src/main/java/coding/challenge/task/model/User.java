@@ -85,9 +85,6 @@ public class User {
     @NotEmpty
     private String purposeOfTraveling;
 
-    @Column(name = "image_url")
-    private String imageUrl;
-
 }
 
 

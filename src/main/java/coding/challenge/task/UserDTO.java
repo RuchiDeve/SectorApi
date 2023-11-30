@@ -64,5 +64,4 @@ public class UserDTO {
     @NotEmpty
     private String purposeOfTraveling;
 
-    private String imageUrl;
 }
