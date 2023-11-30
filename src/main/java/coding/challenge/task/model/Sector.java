@@ -21,10 +21,10 @@ public class Sector {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String selectedCategory;
-    private String Manufacturing;
-    private String Construction_matererials;
-    private String ElectronicsandOptics;
-    private String Food_and_beverages;
+    private String manufacturing;
+    private String construction_matererials;
+    private String electronicsandOptics;
+    private String food_and_beverages;
     private String Backery_confectionary_products;
     private String Beverages;
     private String Fish_fish_product;
