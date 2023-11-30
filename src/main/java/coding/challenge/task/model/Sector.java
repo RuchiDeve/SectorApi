@@ -21,6 +21,7 @@ public class Sector {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String selectedCategory;
+    @Column(name = "manufacturing", nullable = false)
     private String manufacturing;
     private String construction_matererials;
     private String electronicsandOptics;
