@@ -11,7 +11,6 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class SectorServiceImp implements SectorService {
-
     private final SectorRepository sectorRepository;
 
     @Override
@@ -41,7 +40,6 @@ public class SectorServiceImp implements SectorService {
     }
     @Override
     public void deleteSector(Long id) {
-
         sectorRepository.deleteById(id);
     }
 }

@@ -10,13 +10,13 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/invoices")
+@RequestMapping("/sector")
 public class SectorController {
 
     private final SectorService sectorService;
 
     @GetMapping
-    public ResponseEntity<List<Sector>> getInvoices() {
+    public ResponseEntity<List<Sector>> getSector() {
         return new ResponseEntity<>(sectorService.getAllSector(), HttpStatus.OK);
     }
 
