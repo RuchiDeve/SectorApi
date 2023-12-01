@@ -2,7 +2,8 @@ package coding.challenge.task.controller;
 
 
 
-import coding.challenge.task.UserDTO;
+
+import coding.challenge.task.dto.UserDTO;
 import coding.challenge.task.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

@@ -1,6 +1,7 @@
 package coding.challenge.task.service;
 
-import coding.challenge.task.UserDTO;
+
+import coding.challenge.task.dto.UserDTO;
 import coding.challenge.task.model.User;
 
 import java.util.List;

@@ -1,12 +1,13 @@
 package coding.challenge.task.service.serviceImp;
 
-import org.modelmapper.ModelMapper;
-import org.springframework.stereotype.Service;
-import coding.challenge.task.UserDTO;
+
+import coding.challenge.task.dto.UserDTO;
 import coding.challenge.task.model.User;
 import coding.challenge.task.repository.UserRepository;
 import coding.challenge.task.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;

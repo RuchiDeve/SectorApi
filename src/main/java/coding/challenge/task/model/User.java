@@ -35,39 +35,14 @@ public class User {
     @NotEmpty
     private String email;
 
-    @Column(nullable = false)
-    @NotEmpty
-    private String gender;
-
-    @Column(name = "date_of_birth")
-    @NotEmpty
-    private String dateOfBirth;
-
-    @Column(name = "country_of_citizen", nullable = false)
-    @NotEmpty
-    private String countryOfCitizen;
-
-    @Column(name = "marital_status", nullable = false)
-    @NotEmpty
-    private String maritalStatus;
-
 
     @Column(name = "phone_number", nullable = false)
     @NotEmpty
     private String phoneNumber;
 
-    @Column(name = "residential_address", nullable = false)
-    @NotEmpty
-    private String residentialAddress;
+    private String sector;
 
 
-    @Column(name = "country_of_interest")
-    @NotEmpty
-    private String countryOfInterest;
-
-    @Column(name = "purpose_of_traveling", nullable = false)
-    @NotEmpty
-    private String purposeOfTraveling;
 
 }
 
