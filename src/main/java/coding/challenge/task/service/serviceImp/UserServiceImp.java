@@ -1,35 +1,32 @@
 package coding.challenge.task.service.serviceImp;
 
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
 import coding.challenge.task.UserDTO;
-
 import coding.challenge.task.model.User;
 import coding.challenge.task.repository.UserRepository;
 import coding.challenge.task.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class UserServiceImp implements UserService {
     private final UserRepository userRepository;
-
-    public UserServiceImp(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    private final ModelMapper modelMapper;
 
     @Override
     public UserDTO createUser(UserDTO userDTO) {
-        User user = convertToEntity(userDTO);
-        return convertToDTO(userRepository.save(user));
+        User user = modelMapper.map(userDTO, User.class);
+        return modelMapper.map(userRepository.save(user), UserDTO.class);
     }
 
     @Override
     public UserDTO getUserById(Long id) {
         return userRepository.findById(id)
-                .map(this::convertToDTO)
+                .map(user -> modelMapper.map(user, UserDTO.class))
                 .orElse(null);
     }
 
@@ -37,7 +34,7 @@ public class UserServiceImp implements UserService {
     public List<UserDTO> getAllUsers() {
         List<User> users = userRepository.findAll();
         return users.stream()
-                .map(this::convertToDTO)
+                .map(user -> modelMapper.map(user, UserDTO.class))
                 .collect(Collectors.toList());
     }
 
@@ -45,9 +42,8 @@ public class UserServiceImp implements UserService {
     public UserDTO updateUser(Long id, UserDTO updatedUserDTO) {
         User existingUser = userRepository.findById(id).orElse(null);
         if (existingUser != null) {
-            User updatedUser = convertToEntity(updatedUserDTO);
-            updatedUser.setId(existingUser.getId());
-            return convertToDTO(userRepository.save(updatedUser));
+            modelMapper.map(updatedUserDTO, existingUser);
+            return modelMapper.map(userRepository.save(existingUser), UserDTO.class);
         }
         return null;
     }
@@ -55,22 +51,5 @@ public class UserServiceImp implements UserService {
     @Override
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
-    }
-
-    // Manual conversion methods
-    private UserDTO convertToDTO(User user) {
-        UserDTO userDTO = new UserDTO();
-        userDTO.setId(user.getId());
-        userDTO.setFirstName(user.getFirstName());
-        // Set other properties similarly
-        return userDTO;
-    }
-
-    private User convertToEntity(UserDTO userDTO) {
-        User user = new User();
-        user.setId(userDTO.getId());
-        user.setFirstName(userDTO.getFirstName());
-        // Set other properties similarly
-        return user;
     }
 }

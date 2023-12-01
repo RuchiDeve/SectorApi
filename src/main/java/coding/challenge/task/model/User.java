@@ -30,10 +30,6 @@ public class User {
     @NotEmpty
     private String lastName;
 
-    @Column(name = "full_name", nullable = false)
-    @NotEmpty
-    private String fullName;
-
     @Column(nullable = false)
     @Email(message = "Please provide a valid email address")
     @NotEmpty
@@ -42,10 +38,6 @@ public class User {
     @Column(nullable = false)
     @NotEmpty
     private String gender;
-
-    @Column(name = "place_of_birth")
-    @NotEmpty
-    private String placeOfBirth;
 
     @Column(name = "date_of_birth")
     @NotEmpty
@@ -59,11 +51,6 @@ public class User {
     @NotEmpty
     private String maritalStatus;
 
-    @Column(nullable = false)
-    @NotEmpty
-    private String education;
-
-    private String occupation;
 
     @Column(name = "phone_number", nullable = false)
     @NotEmpty
@@ -73,9 +60,6 @@ public class User {
     @NotEmpty
     private String residentialAddress;
 
-    @Column(name = "mailing_address", nullable = false)
-    @NotEmpty
-    private String mailingAddress;
 
     @Column(name = "country_of_interest")
     @NotEmpty

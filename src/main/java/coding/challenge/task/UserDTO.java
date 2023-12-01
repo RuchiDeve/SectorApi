@@ -22,8 +22,6 @@ public class UserDTO {
     @NotEmpty
     private String lastName;
 
-    @NotEmpty
-    private String fullName;
 
     @Email(message = "Please provide a valid email address")
     @NotEmpty
@@ -32,8 +30,6 @@ public class UserDTO {
     @NotEmpty
     private String gender;
 
-    @NotEmpty
-    private String placeOfBirth;
 
     @NotEmpty
     private String dateOfBirth;
@@ -44,8 +40,6 @@ public class UserDTO {
     @NotEmpty
     private String maritalStatus;
 
-    @NotEmpty
-    private String education;
 
     private String occupation;
 
@@ -55,8 +49,6 @@ public class UserDTO {
     @NotEmpty
     private String residentialAddress;
 
-    @NotEmpty
-    private String mailingAddress;
 
     @NotEmpty
     private String countryOfInterest;
