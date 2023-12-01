@@ -1,5 +1,6 @@
 package coding.challenge.task.controller;
 
+import coding.challenge.task.dto.SectorDTO;
 import coding.challenge.task.model.Sector;
 import coding.challenge.task.service.SectorService;
 import lombok.RequiredArgsConstructor;
@@ -16,23 +17,23 @@ public class SectorController {
     private final SectorService sectorService;
 
     @GetMapping
-    public ResponseEntity<List<Sector>> getSector() {
+    public ResponseEntity<List<SectorDTO>> getSector() {
         return new ResponseEntity<>(sectorService.getAllSector(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Sector> getSector(@PathVariable Long id) {
+    public ResponseEntity<SectorDTO> getSector(@PathVariable Long id) {
         return new ResponseEntity<>(sectorService.getSectorById(id), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<Sector> createSector(@RequestBody Sector sector) {
-        return new ResponseEntity<>(sectorService.createSector(sector), HttpStatus.CREATED);
+    public ResponseEntity<SectorDTO> createSector(@RequestBody SectorDTO sectorDTO) {
+        return new ResponseEntity<>(sectorService.createSector(sectorDTO), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Sector> updateSector(@PathVariable Long id, @RequestBody Sector sector) {
-        return new ResponseEntity<>(sectorService.updateSector(id, sector), HttpStatus.OK);
+    public ResponseEntity<SectorDTO> updateSector(@PathVariable Long id, @RequestBody SectorDTO sectorDTO) {
+        return new ResponseEntity<>(sectorService.updateSector(id, sectorDTO), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
