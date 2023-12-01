@@ -20,8 +20,25 @@ public class UserServiceImp implements UserService {
 
     @Override
     public UserDTO createUser(UserDTO userDTO) {
-        User user = modelMapper.map(userDTO, User.class);
-        return modelMapper.map(userRepository.save(user), UserDTO.class);
+        User user = User.builder()
+                .firstName(userDTO.getFirstName())
+                .lastName(userDTO.getLastName())
+                .email(userDTO.getEmail())
+                .phoneNumber(userDTO.getPhoneNumber())
+                .sector(userDTO.getSector())
+                .build();
+        User savedUser = userRepository.save(user);
+        UserDTO savedUserDTO = UserDTO.builder()
+                .firstName(savedUser.getFirstName())
+                .lastName(savedUser.getLastName())
+                .email(savedUser.getEmail())
+                .phoneNumber(savedUser.getPhoneNumber())
+                .sector(savedUser.getSector())
+                .build();
+        return savedUserDTO;
+//        User user = modelMapper.map(userDTO, User.class);
+//        return modelMapper.map(userRepository.save(user), UserDTO.class);
+
     }
 
     @Override
