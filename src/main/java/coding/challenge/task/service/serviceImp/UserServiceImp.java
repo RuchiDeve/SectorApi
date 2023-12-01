@@ -37,7 +37,6 @@ public class UserServiceImp implements UserService {
                 .map(user -> modelMapper.map(user, UserDTO.class))
                 .collect(Collectors.toList());
     }
-
     @Override
     public UserDTO updateUser(Long id, UserDTO updatedUserDTO) {
         User existingUser = userRepository.findById(id).orElse(null);
@@ -47,7 +46,6 @@ public class UserServiceImp implements UserService {
         }
         return null;
     }
-
     @Override
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
