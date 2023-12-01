@@ -36,8 +36,6 @@ public class UserServiceImp implements UserService {
                 .sector(savedUser.getSector())
                 .build();
         return savedUserDTO;
-//        User user = modelMapper.map(userDTO, User.class);
-//        return modelMapper.map(userRepository.save(user), UserDTO.class);
 
     }
 
@@ -57,10 +55,23 @@ public class UserServiceImp implements UserService {
     }
     @Override
     public UserDTO updateUser(Long id, UserDTO updatedUserDTO) {
-        User existingUser = userRepository.findById(id).orElse(null);
-        if (existingUser != null) {
-            modelMapper.map(updatedUserDTO, existingUser);
-            return modelMapper.map(userRepository.save(existingUser), UserDTO.class);
+        User user = userRepository.findById(id).orElse(null);
+        if (user != null) {
+            user.setFirstName(updatedUserDTO.getFirstName());
+            user.setLastName(updatedUserDTO.getLastName());
+            user.setEmail(updatedUserDTO.getEmail());
+            user.setPhoneNumber(updatedUserDTO.getPhoneNumber());
+            user.setSector(updatedUserDTO.getSector());
+            User savedUser = userRepository.save(user);
+            UserDTO savedUserDTO = UserDTO.builder()
+                    .firstName(savedUser.getFirstName())
+                    .lastName(savedUser.getLastName())
+                    .email(savedUser.getEmail())
+                    .phoneNumber(savedUser.getPhoneNumber())
+                    .sector(savedUser.getSector())
+                    .build();
+            return savedUserDTO;
+
         }
         return null;
     }
