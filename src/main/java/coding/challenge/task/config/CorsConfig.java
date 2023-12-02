@@ -1,4 +1,4 @@
-package coding.challenge.task;
+package coding.challenge.task.config;
 
 
 import org.springframework.context.annotation.Bean;
