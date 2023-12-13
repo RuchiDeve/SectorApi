@@ -1,6 +1,7 @@
 package coding.challenge.task.service;
 
 import coding.challenge.task.dto.SectorDTO;
+import coding.challenge.task.dto.SubSectorDTO;
 import coding.challenge.task.model.Sector;
 
 import java.util.List;
@@ -12,4 +13,5 @@ public interface SectorService {
     SectorDTO updateSector(Long id, SectorDTO updatedSectorDTO);
     void deleteSector(Long id);
 
+    SectorDTO getSectorWithSubsectors(Long sectorId); // New method
 }

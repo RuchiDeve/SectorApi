@@ -2,15 +2,14 @@ package coding.challenge.task.dto;
 
 import lombok.*;
 
-import java.util.List;
-
-@Getter
 @Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class SectorDTO {
+public class SubSectorDTO {
     private Long id;
     private String name;
-    private List<SubSectorDTO> subSectors;
+    private Long sectorId;
 }
+

@@ -40,6 +40,12 @@ public class SectorController {
     public void deleteSector(@PathVariable Long id) {
         sectorService.deleteSector(id);
     }
+    @GetMapping("/{id}/withSubsectors")
+    public ResponseEntity<SectorDTO> getSectorWithSubsectors(@PathVariable Long id) {
+        SectorDTO sectorWithSubsectors = sectorService.getSectorWithSubsectors(id);
+        return new ResponseEntity<>(sectorWithSubsectors, HttpStatus.OK);
+    }
 }
+
 
 
