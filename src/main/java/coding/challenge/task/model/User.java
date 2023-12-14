@@ -6,6 +6,8 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 
+import java.util.List;
+
 
 @Setter
 @Getter
@@ -37,8 +39,10 @@ public class User {
     @Column(name = "phone_number", nullable = false)
     @NotEmpty
     private String phoneNumber;
-
     private String sector;
+    private String subSector;
+
+
 
 
 
