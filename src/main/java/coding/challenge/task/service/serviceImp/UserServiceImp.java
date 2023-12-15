@@ -26,6 +26,7 @@ public class UserServiceImp implements UserService {
                 .email(userDTO.getEmail())
                 .phoneNumber(userDTO.getPhoneNumber())
                 .sector(userDTO.getSector())
+                .subSector(userDTO.getSubSector())
                 .build();
         User savedUser = userRepository.save(user);
         UserDTO savedUserDTO = UserDTO.builder()
@@ -34,6 +35,7 @@ public class UserServiceImp implements UserService {
                 .email(savedUser.getEmail())
                 .phoneNumber(savedUser.getPhoneNumber())
                 .sector(savedUser.getSector())
+                .subSector(savedUser.getSubSector())
                 .build();
         return savedUserDTO;
 
@@ -69,6 +71,7 @@ public class UserServiceImp implements UserService {
                     .email(savedUser.getEmail())
                     .phoneNumber(savedUser.getPhoneNumber())
                     .sector(savedUser.getSector())
+                    .subSector(savedUser.getSubSector())
                     .build();
             return savedUserDTO;
 
